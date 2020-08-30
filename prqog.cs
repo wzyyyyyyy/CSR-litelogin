@@ -1,4 +1,4 @@
-﻿
+
 using CSR;
 using System;
 using System.Collections.Generic;
@@ -101,7 +101,7 @@ namespace login
                         }
                         if (md5input == rightword & xuid[a.playername] == rightxuid & a.playername == rightplayername)
                         {
-                            login_zt[a.playername] = true;
+                            login_zt[a.playername] = false;
                             api.runcmd("tellraw \"" + a.playername + "\" {\"rawtext\":[{\"text\":\"§3登录成功！\"}]}");
                             login[a.playername] = true;
                         }
@@ -188,6 +188,7 @@ namespace login
                                 Console.WriteLine("[litelogin]未启用SQL存储，将保存数据到本地文件！！！");
                             }
                         });
+                        login_zt[a.playername] = false;
                         api.runcmd("tellraw \"" + a.playername + "\" {\"rawtext\":[{\"text\":\"§3注册成功！\"}]}");
                         api.runcmd("tellraw \"" + a.playername + "\" {\"rawtext\":[{\"text\":\"§3请输入/login <密码> 来登录！\"}]}");
                     }
